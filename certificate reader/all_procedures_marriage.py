@@ -9,6 +9,7 @@ import pandas as pd
 
 def everything(directory, first, last):
     a = create_file_list(directory)
+    #tprint(a)
     if '.pdf' not in a[first]:
         while '.pdf' not in a[first]:
             first = first + 1
@@ -16,15 +17,17 @@ def everything(directory, first, last):
         b = a[first:last]
     else:
         b = a[first:]
-    x = 0
+    #x = 1
     for file in b:
         #print(file)
         text_elements = pdf_to_list(directory + '/' + file)
         #print(text_elements)
+        #print(file)
+        #print(x)
+        #x+=1
         try:
             list = combined_m(text_elements)
             list.append(file)
-            #print(list)
         except IndexError:
             list = [file,'Error', 'Error', 'Error', 'Error', 'Error', 'Error', 'Error']
         data = np.array([['Column 0', 'Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5', 'Column 6', 'Column 7'], list])

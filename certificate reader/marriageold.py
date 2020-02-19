@@ -52,18 +52,18 @@ def wife_name(text_elements):
     else:
         return "N/A"
 
-#list2 = []
+list2 = []
 def wife_run(text_elements):
-    list2 = []
+    global list2
     for i, j in enumerate(text_elements):
         if j == u'R.U.N.            :':
             list2.append(i)
     return text_elements[list2[1] + 1]
 
 
-#list1 = []
+list1 = []
 def wife_birth(text_elements):
-    list1 = []
+    global list1
     for i, j in enumerate(text_elements):
         if j == u'Fecha nacimiento  :':
             list1.append(i)
